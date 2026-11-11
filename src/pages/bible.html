@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><!--BRAND--> · 赛道介绍片 · 设定集（待确认）</title>
+<!--FONTS-->
+<style>
+:root{--ink:#14284A;--bg:#F4EEDF;--card:#fff;--line:#E3D8BE;--blue:#1475D9;--pink:#F0238C;--gold:#FFC83D}
+body[data-style="navi"]{--ink:#1F2D3D;--bg:#F2F5FA;--card:#fff;--line:#DDE4EE;--blue:#2E7BFF;--pink:#FF4FA0;--gold:#FFB020}
+body[data-style="papercut"]{--ink:#4A1612;--bg:#F7EFDF;--card:#FFFBF2;--line:#E4D0A8;--blue:#2D4FA3;--pink:#E8508A;--gold:#F2B33D}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:HMSans,'Microsoft YaHei',sans-serif;font-weight:500;line-height:1.65}
+.top{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;padding:10px 32px 8px;display:flex;flex-direction:column;gap:7px}
+.top .row1{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.top h1{font-size:20px;margin:0;font-weight:700;white-space:nowrap}
+.top h1 small{font-weight:500;opacity:.75;margin-left:10px;font-size:13px}
+.top h1 small #badge{color:var(--gold);font-weight:700}
+#tabs{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+#tabs a{color:#fff;text-decoration:none;padding:4px 14px;border-radius:99px;background:rgba(255,255,255,.12);font-size:14px;border:1.5px solid transparent}
+#tabs a:hover{background:rgba(255,255,255,.24)}
+#tabs a.on{background:var(--gold);color:var(--ink);font-weight:700}
+#tabs a.home{background:transparent;border-color:rgba(255,255,255,.45)}
+#toc{display:flex;gap:6px;flex-wrap:wrap}
+#toc a{color:#fff;text-decoration:none;padding:3px 11px;border-radius:99px;background:rgba(255,255,255,.08);font-size:13px}
+#toc a span{color:var(--gold);margin-right:6px;font-family:FigtreeX}
+#toc a:hover{background:rgba(255,255,255,.22)}
+main{max-width:1360px;margin:0 auto;padding:24px 32px 80px}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;align-items:center;margin:20px 0 10px}
+.hero h2{font-size:40px;line-height:1.2;margin:0 0 12px}
+.hero p{margin:6px 0;font-size:16px}
+.hero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.hero .meta span{background:var(--card);border:2px solid var(--ink);border-radius:99px;padding:3px 12px;font-size:14px}
+.hero img{width:100%;border-radius:18px;border:4px solid var(--ink);display:block}
+.pos{margin-top:14px;background:var(--card);border-left:6px solid var(--blue);border-radius:10px;padding:10px 14px;font-size:15px}
+section{margin-top:56px}
+section header{display:flex;align-items:baseline;gap:14px;border-bottom:3px solid var(--ink);padding-bottom:8px}
+section header .no{font-family:FigtreeX;font-size:40px;color:var(--blue);line-height:1}
+section header h2{margin:0;font-size:30px}
+.lead{font-size:16px;max-width:1100px}
+.lead b,.note b{color:var(--blue)}
+h3{font-size:19px;margin:30px 0 12px}
+h3::before{content:'';display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--gold);margin-right:8px;vertical-align:2px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}.g7{grid-template-columns:repeat(7,1fr)}
+.seqwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.seqitem{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:8px 10px}
+.seqitem>b{font-family:FigtreeX;font-size:14px;display:block;margin-bottom:4px}
+.seqrow{display:flex;gap:6px}
+.seqrow figure{margin:0;flex:1;min-width:0}
+.seqrow img{width:100%;height:auto;display:block;background:repeating-conic-gradient(#eef1f6 0 25%,#fff 0 50%) 0 0/16px 16px;border-radius:8px}
+.seqrow figcaption{font-size:11px;font-family:FigtreeX;opacity:.6;text-align:center}
+.card{margin:0;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px;display:flex;flex-direction:column;justify-content:space-between}
+.card svg{width:100%;height:auto;display:block}
+.card img{width:100%;border-radius:10px;display:block}
+.card figcaption{font-size:14px;text-align:center;margin-top:6px}
+.card.wide figcaption{font-size:15px;font-weight:700}
+.card.master{padding:14px;max-width:1000px;margin:0 auto}
+.ico{max-width:86px;margin:0 auto}
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.sw{display:flex;gap:10px;align-items:center;background:var(--card);border-radius:12px;padding:8px;border:2px solid var(--line);font-size:14px}
+.sw i{width:40px;height:40px;border-radius:10px;border:2px solid var(--ink);flex:none}.sw code{font-size:12px;color:#7A869A}
+.note{background:var(--card);border-left:6px solid var(--gold);padding:10px 16px;border-radius:8px}
+.rules{margin:0;padding-left:22px}.rules li{margin:5px 0;font-size:15px}
+.tbl{border-collapse:collapse;width:100%;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:center}
+.tbl th{background:var(--ink);color:#fff;font-weight:700;font-size:13px}
+.tbl td{color:var(--blue);font-size:18px}
+.tbl td:first-child{font-family:FigtreeX;text-align:left;white-space:nowrap;font-size:15px;color:var(--ink)}
+.tbl tr.fo td:first-child em{font-style:normal;font-size:12px;background:var(--blue);color:#fff;border-radius:6px;padding:0 6px;margin-left:4px}
+.tico{width:30px;height:30px}
+.subs td{font-size:15px;color:var(--ink);text-align:left}.subs td em{font-style:normal;background:var(--gold);border-radius:6px;padding:0 6px;font-size:13px}
+.kfs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.kf{margin:0;background:var(--card);border:2px solid var(--line);border-radius:16px;overflow:hidden}
+.kf .kimg img{width:100%;display:block}
+.kf figcaption{padding:10px 14px 14px}
+.kf .tc{font-family:FigtreeX;background:var(--ink);color:#fff;border-radius:6px;padding:1px 8px;margin-right:8px;font-size:14px}
+.kf .sh{font-size:13px;color:var(--blue);margin-right:8px;font-weight:700}
+.kf b{font-size:17px}.kf p{margin:4px 0 0;font-size:14px;color:#5A6480}
+.miss{aspect-ratio:16/9;display:grid;place-items:center;background:#EEE6D3;color:#8B7D5E;font-size:14px}
+.qa{background:var(--card);border-radius:16px;border:2px solid var(--line);padding:16px 22px 16px 46px}
+.qa li{margin:8px 0}.qa li b{font-size:16px}.qa li p{margin:2px 0 0;font-size:15px}.qa li p b{color:var(--pink);font-size:15px}
+footer{text-align:center;color:#8B7D5E;font-size:13px;padding:30px}
+@media print{.top{position:static}section{break-inside:avoid-page}}
+</style></head>
+<body>
+<div class="top">
+  <div class="row1"><h1><!--BRAND--> · 赛道介绍片<small>设定集 v2 · 本册：<span id="badge"></span> · 待项目方确认</small></h1><nav id="tabs"></nav></div>
+  <nav id="toc"></nav>
+</div>
+<main>
+  <div class="hero">
+    <div><h2>两位奔跑小人，跑完一条赛道</h2>
+      <p>16:9 横版 · 4K（3840×2160）· 60 秒 · 用于短视频平台宣传。</p>
+      <p>倾斜的赛道上，全马角色与半马角色从同一座起点龙门出发，一路经过公里点、补给站和沿途地标，过两次桥、在全/半马分流岛分道，各自冲线完成加冕。</p>
+      <p>同一天内容一共做了 <b>三套画风</b>，本册只是其中一套；顶部标签可直接切换对比。</p>
+      <div id="positioning" class="pos"></div>
+      <div class="meta"><span>底图：官方 .ai 矢量</span><span>角色：AI 位图</span><span>文字：照抄脚本</span><span>位置：官方图实测</span><span>可逐帧复现 / 可改</span></div>
+    </div>
+    <!--HERO-->
+  </div>
+  <div id="main"></div>
+</main>
+<footer>生成于 <span id="built"></span> · 所有图形由成片同一套代码生成</footer>
+<!--IMAGES-->
+<!--ASSETS-->
+<!--APP-->
+</body></html>

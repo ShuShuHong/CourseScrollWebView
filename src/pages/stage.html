@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title><!--BRAND--> · 赛道介绍片 · 预览</title>
+<!--FONTS-->
+<style>
+html,body{margin:0;background:#0b1626;color:#fff;font-family:HMSans,'Microsoft YaHei',sans-serif;overflow:hidden}
+#main{display:flex;height:100vh;align-items:stretch}
+#left{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center}
+#wrap{margin:0 auto;position:relative;flex:none}
+#stage{transform-origin:0 0}
+/* 底部只剩“走带”：播放 / 逐帧 / 时间轴滑杆 */
+#ui{height:56px;display:flex;align-items:center;gap:8px;padding:0 14px;background:#0b1626;flex:none}
+#ui button{background:#1e3b66;color:#fff;border:0;border-radius:8px;padding:6px 10px;font:inherit;font-size:13px;cursor:pointer}
+#ui #play{flex:none;width:44px;font-size:16px}
+#ui #fprev,#ui #fnext{flex:none;font-variant-numeric:tabular-nums;padding:6px 8px}
+#bar{flex:1 1 auto;min-width:120px;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;
+  background:#1b3556;outline:none;cursor:pointer}
+#bar::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;
+  background:#4d9bff;border:0;cursor:pointer;box-shadow:0 0 0 3px rgba(77,155,255,.18)}
+#bar::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#4d9bff;border:0;cursor:pointer}
+/* ── 右侧信息栏：一行一个数据 ── */
+#panel{flex:none;width:300px;height:100vh;box-sizing:border-box;padding:10px 12px 14px;
+  background:#08111f;border-left:1px solid #17304d;overflow-y:auto;font-size:12.5px}
+#panel h4{margin:0 0 8px;font-size:11.5px;letter-spacing:.6px;color:#6f8fb5;font-weight:600}
+#panel .row{padding:4px 0;border-bottom:1px solid #12233a}
+#panel .k{display:block;font-size:10.5px;color:#6f8fb5;letter-spacing:.3px;margin-bottom:2px}
+#panel .k .tag{margin-left:2px}
+#panel .v{display:block;font-size:13.5px;color:#eaf3ff;font-variant-numeric:tabular-nums;line-height:1.25;word-break:break-all}
+#panel .v.sm{font-size:12px}
+#panel .v.hi{color:#8fd0ff}
+#panel .v.mut{color:#5d7a99}
+#panel .nx{display:block;font-size:10px;color:#6c86a6;margin-top:2px;font-variant-numeric:tabular-nums;
+  line-height:1.25;word-break:break-all}
+#panel .row.ev{padding-bottom:6px}
+#panel .row.ev .v{margin-bottom:1px}
+#panel .tag{display:inline-block;margin-left:4px;padding:0 4px;border-radius:4px;font-size:9.5px;
+  font-weight:400;letter-spacing:0;background:#1d4a2f;color:#7ee0a3;vertical-align:1px;white-space:nowrap}
+#panel .tag.off{background:#2a3242;color:#8fa2b8}
+#panel .group{margin-top:12px}
+#panel .sw{display:flex;gap:10px;align-items:center;padding-top:3px}
+#nscale{flex:1;min-width:0;height:16px;accent-color:#4f9cff;cursor:pointer}
+#panel #nscale-v{display:inline-block;font-size:13.5px}
+#panel label{font-size:12px;color:#c9dcf2;display:flex;align-items:center;gap:5px;white-space:nowrap;cursor:pointer}
+#panel .segs{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+#panel .segs button{background:#132c4c;color:#cfe3fb;border:1px solid #21456e;border-radius:6px;
+  padding:5px 3px;font:inherit;font-size:11.5px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#panel .segs button:hover{background:#1d4472}
+#tune{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);display:none;
+  background:rgba(6,20,36,.88);color:#8fd0ff;font-size:12.5px;line-height:1;
+  padding:7px 14px;border-radius:10px;border:1px solid #23496f;
+  font-variant-numeric:tabular-nums;pointer-events:none;z-index:9;white-space:nowrap}
+</style></head><body>
+<div id="main">
+  <div id="left">
+    <div id="wrap"><div id="stage"></div></div>
+    <div id="ui"><button id="play">▶</button><button id="fprev" title="上一帧（←）">◀ 帧</button><button id="fnext" title="下一帧（→）">帧 ▶</button><input id="bar" type="range" min="0" step="0.001" value="0"></div>
+  </div>
+  <aside id="panel">
+    <div class="row"><span class="k">当前帧</span><span class="v hi" id="p-frame">—</span></div>
+    <div class="row"><span class="k">总帧</span><span class="v" id="p-total">—</span></div>
+    <div class="row"><span class="k">当前秒</span><span class="v" id="p-sec">—</span></div>
+    <div class="row"><span class="k">口播条目</span><span class="v sm" id="p-cue">—</span></div>
+    <div class="row"><span class="k">口播条目时长</span><span class="v" id="p-cuedur">—</span></div>
+    <div class="row"><span class="k">口播 / 音效</span>
+      <span class="sw">
+        <label title="口播（旁白）轨"><input id="sndvo" type="checkbox" checked> 口播</label>
+        <label title="音效轨（脚步/发枪/欢呼…，已按口播压音）"><input id="sndsfx" type="checkbox" checked> 音效</label>
+      </span>
+    </div>
+    <div class="row"><span class="k">里程（全马）</span><span class="v hi" id="p-kmm">—</span></div>
+    <div class="row"><span class="k">里程（半马）</span><span class="v hi" id="p-kmf">—</span></div>
+    <div class="row"><span class="k">当前场景</span><span class="v" id="p-scene">—</span></div>
+    <div class="row"><span class="k">地名缩放（1.0–5.0 · 步进 0.1）</span>
+      <span class="sw"><input id="nscale" type="range" min="1" max="5" step="0.1" value="1.4" title="地图上路名字号倍数"><b class="v hi" id="nscale-v" style="min-width:34px;text-align:right">1.4</b></span></div>
+    <div class="row ev"><span class="k">同期字幕事件</span>
+      <span class="v sm" id="p-evsub">—</span><span class="nx" id="p-evsub-n">—</span></div>
+    <div class="row ev"><span class="k">图卡入场事件（<span id="p-evin-tag" class="tag off">当前无卡</span>）</span>
+      <span class="v sm" id="p-evin">—</span><span class="nx" id="p-evin-n">—</span></div>
+    <div class="row ev"><span class="k">图卡出场事件</span>
+      <span class="v sm" id="p-evout">—</span><span class="nx" id="p-evout-n">—</span></div>
+    <div class="group"><h4>分段跳转</h4><div class="segs" id="marks"></div></div>
+  </aside>
+</div>
+<div id="tune"></div>
+<!--ASSETS-->
+<!--AUDIO-->
+<!--APP-->
+</body></html>

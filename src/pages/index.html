@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><!--BRAND--> · 赛道介绍片 · 三套画风设定集</title>
+<!--FONTS-->
+<style>
+:root{--ink:#14284A;--bg:#F4EEDF;--card:#fff;--line:#E3D8BE;--blue:#1475D9;--pink:#F0238C;--gold:#FFC83D}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:HMSans,'Microsoft YaHei',sans-serif;line-height:1.65}
+.top{background:var(--ink);color:#fff;padding:14px 40px;display:flex;align-items:center;gap:20px}
+.top h1{margin:0;font-size:20px}.top small{opacity:.72;margin-left:10px;font-size:13px}
+.top nav{margin-left:auto;display:flex;gap:8px}
+.top nav a{color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 14px;border-radius:99px;font-size:14px}
+.top nav a:hover{background:rgba(255,255,255,.26)}
+main{max-width:1400px;margin:0 auto;padding:28px 32px 70px}
+h2{font-size:38px;margin:12px 0 8px;line-height:1.25}
+.lead{font-size:17px;max-width:1000px}
+.lead b{color:var(--blue)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px}
+.sc{background:var(--card);border:3px solid var(--ink);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.sc .hd{padding:14px 18px 10px}
+.sc .hd .no{font-family:FigtreeX;font-size:13px;letter-spacing:.14em;color:#8B7D5E}
+.sc .hd h3{margin:2px 0 4px;font-size:24px}
+.sc .hd p{margin:0;font-size:14px;color:#4A5B78;min-height:44px}
+.sc img{width:100%;display:block;border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.sc .kfimg{position:relative}
+.sc .kfimg span{position:absolute;left:10px;bottom:10px;background:rgba(20,40,74,.86);color:#fff;font-size:12px;padding:2px 8px;border-radius:6px}
+.sc ul{margin:12px 18px 0;padding-left:18px;font-size:14px}
+.sc ul li{margin:3px 0}
+.sc .bt{margin-top:auto;padding:14px 18px 18px;display:flex;gap:8px;flex-wrap:wrap}
+.sc .bt a{flex:1;text-align:center;text-decoration:none;border-radius:10px;padding:9px 10px;font-size:15px;font-weight:700}
+.sc .bt .p1{background:var(--ink);color:#fff}
+.sc .bt .p2{background:#fff;color:var(--ink);border:2px solid var(--ink)}
+table{border-collapse:collapse;width:100%;margin-top:34px;background:var(--card);border-radius:14px;overflow:hidden;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:#fff;font-size:13px}
+td:first-child{white-space:nowrap;font-weight:700;color:#5A6480}
+.note{margin-top:26px;background:var(--card);border-left:6px solid var(--gold);padding:12px 18px;border-radius:10px;font-size:15px}
+footer{text-align:center;color:#8B7D5E;font-size:13px;padding:28px}
+</style></head>
+<body>
+<div class="top"><h1><!--BRAND--> · 赛道介绍片<small>三套画风 · 设定集总览</small></h1>
+  <nav><a href="设定集-A-卡通.html">A 卡通</a><a href="设定集-B-导航地图.html">B 导航地图</a><a href="设定集-C-剪纸.html">C 剪纸</a></nav></div>
+<main>
+  <h2>同一份内容，三件外套</h2>
+  <p class="lead">赛道数据、镜头节奏、字幕文案、公里点与补给点位置<b>三套完全一致</b>，只有美术换了：角色（AI 位图）、地图配色与立体感、地标插画、贴纸外框、功能点图标。请挑一套，或指定“这套的角色 + 那套的地图”这样的混搭。</p>
+  <div id="cards" class="cards"></div>
+  <div id="table"></div>
+  <div class="note"><b>怎么改都行，成本很低：</b>换画风只改一个 token 文件（src/config/theme.js）＋ 换一套素材包；节奏、镜头、字幕在 src/config/story.js。所有画面都是代码按时间轴实时渲染的，改完重跑一条命令就能出新的关键帧与预览。</div>
+</main>
+<footer>生成于 <span id="built"></span> · 所有图形由成片同一套代码生成</footer>
+<!--CARDS-->
+<!--APP-->
+</body></html>

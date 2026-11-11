@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><!--BRAND--> · 赛道介绍片 · 分镜表</title>
+<!--FONTS-->
+<style>
+:root{--ink:#1F2D3D;--bg:#F2F5FA;--card:#fff;--line:#DDE4EE;--blue:#2E7BFF;--pink:#FF4FA0;--gold:#FFB020;--half:#FF4FA0;--full:#2E7BFF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:HMSans,'Microsoft YaHei',sans-serif;font-weight:500;line-height:1.6}
+header{background:var(--ink);color:#fff;padding:18px 30px 14px}
+header h1{margin:0;font-size:22px}
+header p{margin:4px 0 0;font-size:13.5px;opacity:.78}
+main{max-width:1680px;margin:0 auto;padding:20px 30px 80px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:16px 0 6px}
+.kpi div{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:8px 12px}
+.kpi b{display:block;font-family:FigtreeX;font-size:22px;color:var(--blue);line-height:1.2}
+.kpi span{font-size:12px;opacity:.72}
+h2{font-size:19px;margin:30px 0 8px;border-bottom:3px solid var(--ink);padding-bottom:6px}
+p.lead{margin:6px 0 12px;font-size:14px;max-width:1240px}
+p.lead b{color:var(--blue)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:13px;border:2px solid var(--ink);border-radius:12px;overflow:hidden}
+th{background:color-mix(in srgb,var(--ink) 10%,#fff);text-align:left;padding:7px 8px;font-size:12.5px;white-space:nowrap}
+td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+td.num{font-family:FigtreeX;text-align:right;white-space:nowrap}
+td.tm{font-family:FigtreeX;white-space:nowrap;font-size:12.5px}
+td.vo{font-size:13.5px;min-width:190px}
+td.seg{white-space:nowrap;font-weight:700;font-size:12.5px}
+td.cam b{font-size:12.5px}
+td.cam span{font-size:11.5px;opacity:.65;font-family:FigtreeX}
+td.sfx{font-size:12.5px;line-height:1.5;color:#39485a}
+td.sfx .amb{color:#8a94a3;font-size:11.5px}
+td.el{font-size:12px;opacity:.85;min-width:150px}
+td.note2{font-size:12px;opacity:.8;min-width:170px}
+td.na{opacity:.45}
+tr:nth-child(even) td{background:#fbfcfe}
+tr.uturn td:first-child{border-left:5px solid var(--gold)}
+tr.bridge td:first-child{border-left:5px solid var(--blue)}
+tr.finish td:first-child{border-left:5px solid var(--half)}
+tr.poi td:first-child{border-left:5px solid #9fb3c8}
+tr.split td:first-child{border-left:5px solid #24b47e}
+.note{background:#fff8e6;border:2px solid var(--gold);border-radius:12px;padding:10px 14px;font-size:13.5px;margin:12px 0}
+.warn{background:#fff1f4;border:2px solid var(--pink);border-radius:12px;padding:10px 14px;font-size:13.5px;margin:12px 0}
+code{font-family:FigtreeX;background:rgba(0,0,0,.06);border-radius:4px;padding:0 4px}
+@media print{body{background:#fff}header{background:#fff;color:#000}table{page-break-inside:auto}tr{page-break-inside:avoid}}
+</style>
+</head><body>
+<header>
+  <h1>分镜表 · <!--BRAND-->赛道介绍片</h1>
+  <p>时间码全部来自客户音轨 <code>audio/1028/1028.srt</code>（42 条）；一条字幕 = 一个分镜。里程/机位/元素由 <code>src/config/voice.js</code> + <code>story.js</code> 推导，改音轨或改文案后自动重排。</p>
+</header>
+<main>
+  <div class="kpi" id="kpi"></div>
+  <p class="lead" id="anchor"></p>
+  <p class="lead" id="tail"></p>
+
+  <h2>一、逐行分镜（42 条字幕 = 42 个镜头）</h2>
+  <p class="lead">“全马 km / 半马 km”是这一行说到一半时两位角色所在的里程；<b>半马角色在分流点之后走半马自己的线</b>，所以两列会分开。景别按相机距离换算：&lt;620 近景 · &lt;900 中景 · &lt;1400 全景 · &lt;2200 大远景。</p>
+  <table>
+    <thead><tr><th>#</th><th>入点</th><th>出点</th><th>时长</th><th>段落</th><th>口播 / 字幕</th><th>全马 km</th><th>半马 km</th><th>机位</th><th>同屏元素</th><th>音效</th></tr></thead>
+    <tbody id="shots"></tbody>
+  </table>
+
+  <h2>二、段落节奏（9 段）</h2>
+  <p class="lead">字/秒是实测语速（客户录音的节奏），地图速度是画面推进速度——<b>前者基本恒定，后者按戏份有意变化</b>：上桥最慢、林荫大道最快、29→40km 是一整段匀速。</p>
+  <table>
+    <thead><tr><th>段落</th><th>时间</th><th>时长</th><th>行数</th><th>字数</th><th>字/秒</th><th>赛程</th><th>地图速度 km/s</th></tr></thead>
+    <tbody id="segs"></tbody>
+  </table>
+  <div class="warn"><b>29→40km：台词与地图各走各的（待客户定口径）。</b>新音轨里“29.1公里全马折返点掉头”说完到“约40到41公里”开口只有 <b>0.2s</b>，中间 11 公里。<b>现状</b>：全马角色在 22→40km 这一整块里匀速 1.16 km/s ⇒ 台词说“29.1 折返”时（54.1–56.8s）角色已在 34.8–37.9km，而图上真正掉头发生在 <b>49.4s</b>（半马加冕那一刻）。<b>若改成台词锁死</b>：29.1km 卡在 54.1s 掉头，随后 1.4s 要冲 11 公里（约 7.8 km/s），必须配速度线 + “快进”角标。两条都记在这里，等客户选。</div>
+
+  <h2>三、两位角色经过各项目点的时间</h2>
+  <p class="lead">“同框”= 两只在这一刻还在同一条路上；分流后各走各的。左侧色条：<span style="border-left:5px solid var(--blue);padding-left:6px">桥</span> <span style="border-left:5px solid var(--gold);padding-left:6px">折返</span> <span style="border-left:5px solid #24b47e;padding-left:6px">分流</span> <span style="border-left:5px solid var(--half);padding-left:6px">终点</span></p>
+  <table>
+    <thead><tr><th>项目点</th><th>全马 km</th><th>半马 km</th><th>全马角色经过</th><th>半马角色经过</th><th>错开</th><th>口径备注</th><th>对应台词</th></tr></thead>
+    <tbody id="points"></tbody>
+  </table>
+
+  <div class="note"><b>怎么用这张表：</b>每一行的“全马 km / 半马 km”就是那一刻画面里角色该在的位置；拍板改文案时只改 <code>voice.js</code> 的 <code>vo</code>，时间轴和机位会跟着重排。项目点时间表用来核对“解说词说的公里数”和“角色实际到的地方”是否一致——不一致的行会在这两列里一眼看出。</div>
+</main>
+<!--APP-->
+</body></html>

@@ -1,0 +1,30 @@
+# ── 可重建的产物（不要提交）──
+dist/
+out/
+node_modules/
+
+# ── 可重建的音频中间件（构建时自动生成，不进库）──
+#   audio/sfx/*.wav            ← npm run sfx 每次全量重合成（run 前会先清空目录）
+#   audio/tts/                 ← npm run timeline 用 edge-tts 逐句合成并铺成整轨
+audio/sfx/
+audio/tts/
+
+# ── 客户原声存档（成片口播改由 edge-tts 合成，整轨/分段都不入库）──
+audio/*.wav
+audio/1031/*.wav
+audio/1031/seg/*.wav
+audio/_旧版/
+
+# ── 旧样例赛事包：仅本地保留，不入库 ──
+races/gaochun-2026/
+
+# ── 本地工作区：备份、旧稿、试片、临时探针 ──
+_work/
+tools/_*
+__pycache__/
+!tools/check_*.mjs
+
+# ── 系统垃圾 ──
+.DS_Store
+Thumbs.db
+*.log

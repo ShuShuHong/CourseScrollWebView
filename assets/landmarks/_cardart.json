@@ -1,0 +1,292 @@
+{
+ "cartoon/lakepark": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\lakepark_cartoon.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "cartoon/bridge": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\bridge_cartoon.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:29"
+ },
+ "cartoon/baosi": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\baosi_cartoon.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:29"
+ },
+ "cartoon/oldstreet": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\oldstreet_cartoon.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:29"
+ },
+ "cartoon/wetland": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\wetland_cartoon.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "cartoon/sequoia": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\sequoia_cartoon.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "cartoon/watertown": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\watertown_cartoon.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "papercut/baosi": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\baosi_papercut.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:29"
+ },
+ "papercut/bridge": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\bridge_papercut.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:29"
+ },
+ "papercut/oldstreet": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\oldstreet_papercut.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "papercut/lakepark": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\lakepark_papercut.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "papercut/wetland": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\wetland_papercut.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "papercut/watertown": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\watertown_papercut.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "papercut/sequoia": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\sequoia_papercut.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "navi/bridge": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\bridge_navi.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:29"
+ },
+ "navi/oldstreet": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\oldstreet_navi.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:29"
+ },
+ "navi/lakepark": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\lakepark_navi.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "navi/baosi": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\baosi_navi.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:29"
+ },
+ "navi/sequoia": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\sequoia_navi.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "navi/watertown": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\watertown_navi.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "navi/wetland": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\wetland_navi.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:30"
+ },
+ "fresh/wetland": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\wetland_fresh.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:44"
+ },
+ "fresh/baosi": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\baosi_fresh.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:44"
+ },
+ "fresh/bridge": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\bridge_fresh.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:44"
+ },
+ "fresh/lakepark": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\lakepark_fresh.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:44"
+ },
+ "fresh/oldstreet": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\oldstreet_fresh.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:44"
+ },
+ "fresh/sequoia": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\sequoia_fresh.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:44"
+ },
+ "fresh/watertown": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\watertown_fresh.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 00:44"
+ },
+ "fresh/museum": {
+  "source": "F:\\works\\crab2026\\out\\cardart\\museum_fresh.jpg",
+  "size": [
+   1600,
+   600
+  ],
+  "installed": true,
+  "note": "",
+  "at": "2026-10-29 01:02"
+ }
+}

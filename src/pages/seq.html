@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><!--BRAND--> · 角色运动序列</title>
+<!--FONTS-->
+<style>
+:root{--ink:#1F2D3D;--bg:#F2F5FA;--card:#fff;--line:#DDE4EE;--blue:#2E7BFF;--pink:#FF4FA0;--gold:#FFB020}
+body[data-style="cartoon"]{--ink:#14284A;--bg:#F4EEDF;--line:#E3D8BE;--blue:#1475D9;--pink:#F0238C;--gold:#FFC83D}
+body[data-style="papercut"]{--ink:#4A1612;--bg:#F7EFDF;--line:#E4D0A8;--blue:#2D4FA3;--pink:#E8508A;--gold:#F2B33D}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:HMSans,'Microsoft YaHei',sans-serif;font-weight:500;line-height:1.65}
+.top{position:sticky;top:0;z-index:9;background:var(--ink);color:#fff;padding:10px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.top h1{font-size:19px;margin:0;font-weight:700}
+.top h1 small{font-weight:500;opacity:.75;margin-left:10px;font-size:13px}
+#tabs{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+#tabs a{color:#fff;text-decoration:none;padding:4px 13px;border-radius:99px;background:rgba(255,255,255,.12);font-size:14px;border:1.5px solid transparent}
+#tabs a.on{background:var(--gold);color:var(--ink);font-weight:700}
+#tabs a:hover{background:rgba(255,255,255,.24)}
+main{max-width:1500px;margin:0 auto;padding:22px 28px 90px}
+h2{font-size:26px;margin:6px 0 6px}
+p.lead{max-width:1080px;margin:4px 0 14px;font-size:15px}
+.bar{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:10px 18px;margin:14px 0 22px;position:sticky;top:60px;z-index:7}
+.bar label{display:flex;align-items:center;gap:8px;font-size:14px;white-space:nowrap}
+.bar input[type=range]{width:150px}
+.bar b{font-family:FigtreeX;color:var(--blue);min-width:52px;display:inline-block}
+.bar button{font:inherit;font-size:14px;padding:5px 14px;border-radius:99px;border:2px solid var(--ink);background:#fff;cursor:pointer;font-weight:700}
+.bar button.on{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.card .hd{display:flex;align-items:baseline;gap:8px;font-size:14px}
+.card .hd b{font-family:FigtreeX;font-size:15px}
+.card .hd .tag{font-size:12px;background:var(--gold);border-radius:99px;padding:1px 8px;font-weight:700}
+.stage{position:relative;height:210px;border-radius:12px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.stage.dark{background:#22303f}
+.stage.paper{background:#f6efe2}
+.stage.grid{background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 24px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/24px 100%,#fff}
+.stage img{image-rendering:auto;display:block;transform-origin:50% 100%}
+.strip{display:flex;gap:4px;margin-top:2px}
+.strip figure{margin:0;flex:1;text-align:center}
+.strip img{width:100%;display:block;background:#eef1f6;border-radius:6px}
+.strip figcaption{font-size:11px;font-family:FigtreeX;opacity:.65}
+.meta{font-size:12px;opacity:.7;font-family:FigtreeX}
+.empty{background:#fff3cd;border:2px dashed #d9a800;border-radius:12px;padding:14px 18px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:2px solid var(--ink);border-radius:12px;overflow:hidden;margin-top:14px}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:color-mix(in srgb,var(--ink) 8%,#fff);font-weight:700}
+td.num{font-family:FigtreeX;text-align:right}
+</style>
+</head><body data-style="navi">
+<div class="top">
+  <h1>角色运动序列 <small><!--BRAND--> · 赛道介绍片 · <span id="badge">B · 导航地图</span></small></h1>
+  <div id="tabs"></div>
+</div>
+<main>
+  <h2>每个形象都是一段循环</h2>
+  <p class="lead">全部 10 个形象各有一段 <b>逐帧动作序列</b>：AI 出一张“动作分解图”→ 自动切格 → 归一化到同一画布（底线对齐、视觉中心对齐）→ 引擎按速度播帧。切图时把上下颠压平了，播放时再由引擎补上 bob / squash / tilt，所以不会跳。</p>
+  <div class="bar">
+    <label>播放 <input id="play" type="checkbox" checked></label>
+    <label>速度 <input id="fps" type="range" min="4" max="30" value="12"><b id="fpsv">12 fps</b></label>
+    <label>尺寸 <input id="size" type="range" min="80" max="220" value="150"><b id="sizev">150 px</b></label>
+    <label>底色
+      <select id="bgsel" style="font:inherit;font-size:14px;padding:3px 6px;border-radius:8px;border:2px solid var(--ink)">
+        <option value="grid">格子</option><option value="dark">深色</option><option value="paper">米白</option>
+      </select>
+    </label>
+    <button id="allbtn" class="on">全部同时播</button>
+  </div>
+  <div id="grid" class="grid"></div>
+  <h2 style="margin-top:38px">序列明细</h2>
+  <p class="lead">每段序列的帧数、画布尺寸、脚底锚点与视觉中心；<b>帧高差</b>是切图归一化后的残余误差（越小越不跳）。</p>
+  <div id="table"></div>
+</main>
+<!--ASSETS-->
+<script>window.__STYLE=window.__STYLE||'navi';</script>
+<!--APP-->
+</body></html>
