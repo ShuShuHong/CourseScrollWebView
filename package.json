@@ -38,7 +38,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "devDependencies": {
     "esbuild": "0.28.2",
